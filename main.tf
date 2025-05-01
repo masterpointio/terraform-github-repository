@@ -143,7 +143,6 @@ resource "github_repository" "repository" {
   lifecycle {
     ignore_changes = [
       auto_init,
-      etag,
       license_template,
       gitignore_template,
       template,
