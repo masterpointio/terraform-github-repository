@@ -85,7 +85,8 @@ locals {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
-# Create the repository
+# Manage repository
+# https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "github_repository" "repository" {
@@ -142,6 +143,7 @@ resource "github_repository" "repository" {
   lifecycle {
     ignore_changes = [
       auto_init,
+      etag,
       license_template,
       gitignore_template,
       template,
