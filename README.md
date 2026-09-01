@@ -14,6 +14,7 @@ A [Terraform] module for creating a public or private repository on [Github].
 
 **Attention: This module is incompatible with the Hashicorp GitHub Provider! The latest version of this module supporting `hashicorp/github` provider is `~> 0.10.0`**
 
+
 - [GitHub as Code](#github-as-code)
 - [Module Features](#module-features)
 - [Getting Started](#getting-started)
@@ -21,6 +22,7 @@ A [Terraform] module for creating a public or private repository on [Github].
   - [Main Resource Configuration](#main-resource-configuration)
   - [Extended Resource Configuration](#extended-resource-configuration)
     - [Repository Creation Configuration](#repository-creation-configuration)
+    - [Fork Configuration](#fork-configuration)
     - [Teams Configuration](#teams-configuration)
     - [Collaborator Configuration](#collaborator-configuration)
     - [Branches Configuration](#branches-configuration)
@@ -320,6 +322,31 @@ will not show a diff in plan or apply phase.
   - [**`repository`**](#attr-template-repository): *(**Required** `string`)*<a name="attr-template-repository"></a>
 
     The name of the template repository.
+
+#### Fork Configuration
+
+The following three arguments can only be set at repository creation
+(forking only happens on create). Unlike the arguments above, changes
+to these are **not** ignored on updates: changing `source_owner` or
+`source_repo` on an existing fork forces replacement of the repository.
+
+- [**`fork`**](#var-fork): *(Optional `bool`)*<a name="var-fork"></a>
+
+  Set to `true` to create this repository as a fork of an existing repository. Requires `source_owner` and `source_repo` to also be set.
+
+  Default is `false`.
+
+- [**`source_owner`**](#var-source_owner): *(Optional `string`)*<a name="var-source_owner"></a>
+
+  The GitHub user or organization that owns the repository being forked. Required when `fork` is `true`.
+
+  Default is `""`.
+
+- [**`source_repo`**](#var-source_repo): *(Optional `string`)*<a name="var-source_repo"></a>
+
+  The name of the repository to fork. Required when `fork` is `true`.
+
+  Default is `""`.
 
 #### Teams Configuration
 
@@ -1094,7 +1121,7 @@ Copyright &copy; 2020-2022 [Mineiros GmbH][homepage]
 [badge-license]: https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg
 [badge-terraform]: https://img.shields.io/badge/terraform-1.x-623CE4.svg?logo=terraform
 [badge-slack]: https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack
-[badge-tf-gh]: https://img.shields.io/badge/GH-4.10+-F8991D.svg?logo=terraform
+[badge-tf-gh]: https://img.shields.io/badge/GH-6.8+-F8991D.svg?logo=terraform
 [releases-github-provider]: https://github.com/terraform-providers/terraform-provider-github/releases
 [build-status]: https://github.com/mineiros-io/terraform-github-repository/actions
 [releases-github]: https://github.com/mineiros-io/terraform-github-repository/releases
