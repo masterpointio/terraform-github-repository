@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump minimum supported Terraform GitHub Provider version to `6.8.0` (was `5.27`, capped `< 6.0`) so the `fork`/`source_owner`/`source_repo` arguments resolve against a provider schema that actually supports them.
+
 ## [0.18.0]
 
 ### Added
