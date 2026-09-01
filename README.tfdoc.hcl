@@ -412,6 +412,40 @@ section {
       }
 
       section {
+        title   = "Fork Configuration"
+        content = <<-END
+          The following three arguments can only be set at repository creation
+          (forking only happens on create). Unlike the arguments above, changes
+          to these are **not** ignored on updates: changing `source_owner` or
+          `source_repo` on an existing fork forces replacement of the repository.
+        END
+
+        variable "fork" {
+          type        = bool
+          default     = false
+          description = <<-END
+            Set to `true` to create this repository as a fork of an existing repository. Requires `source_owner` and `source_repo` to also be set.
+          END
+        }
+
+        variable "source_owner" {
+          type        = string
+          default     = ""
+          description = <<-END
+            The GitHub user or organization that owns the repository being forked. Required when `fork` is `true`.
+          END
+        }
+
+        variable "source_repo" {
+          type        = string
+          default     = ""
+          description = <<-END
+            The name of the repository to fork. Required when `fork` is `true`.
+          END
+        }
+      }
+
+      section {
         title   = "Teams Configuration"
         content = <<-END
           Your can use non-computed (known at `terraform plan`) team names or slugs (`*_teams` Attributes)

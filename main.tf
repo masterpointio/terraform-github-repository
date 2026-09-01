@@ -119,6 +119,10 @@ resource "github_repository" "repository" {
   archive_on_destroy   = var.archive_on_destroy
   vulnerability_alerts = local.vulnerability_alerts
 
+  fork         = var.fork ? "true" : null
+  source_owner = var.fork ? var.source_owner : null
+  source_repo  = var.fork ? var.source_repo : null
+
   dynamic "template" {
     for_each = local.template
 

@@ -200,6 +200,24 @@ variable "template" {
   default = null
 }
 
+variable "fork" {
+  description = "(Optional) Set to true to create this repository as a fork of an existing repository. Requires source_owner and source_repo to also be set. (Default: false)"
+  type        = bool
+  default     = false
+}
+
+variable "source_owner" {
+  description = "(Optional) The GitHub user or organization that owns the repository being forked. Required when fork is true."
+  type        = string
+  default     = null
+}
+
+variable "source_repo" {
+  description = "(Optional) The name of the repository to fork. Required when fork is true."
+  type        = string
+  default     = null
+}
+
 variable "admin_collaborators" {
   description = "(Optional) A list of users to add as collaborators granting them admin (full) permission."
   type        = list(string)
