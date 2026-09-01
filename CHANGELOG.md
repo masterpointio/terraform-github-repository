@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bump minimum supported Terraform GitHub Provider version to `6.8.0` (was `5.27`, capped `< 6.0`) so the `fork`/`source_owner`/`source_repo` arguments resolve against a provider schema that actually supports them.
 
+### Fixed
+
+- Move `blocks_creations`/`push_restrictions` on `github_branch_protection` (`branch_protections_v4`) into the nested `restrict_pushes` block, matching the provider's `>= 6.x` schema. `var.branch_protections_v4` inputs are unaffected.
+
+### Added
+
+- Add a `terraform validate` CI job (no credentials required) across the root module and `test/unit-complete`, to catch provider-schema mismatches like the above without depending on live GitHub API access.
+
 ## [0.18.0]
 
 ### Added
