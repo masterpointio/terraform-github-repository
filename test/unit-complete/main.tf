@@ -180,6 +180,24 @@ module "repository-with-defaults" {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
+# TEST C
+# We are creating a repository as a fork of an existing public repository
+# ---------------------------------------------------------------------------------------------------------------------
+
+module "repository-fork" {
+  source = "../.."
+
+  name         = var.repository_fork_name
+  fork         = true
+  source_owner = var.fork_source_owner
+  source_repo  = var.fork_source_repo
+
+  # Forks should be fully removed on destroy, not archived, so repeated test
+  # runs don't accumulate archived forks in the test org.
+  archive_on_destroy = false
+}
+
+# ---------------------------------------------------------------------------------------------------------------------
 # GITHUB DEPENDENCIES: TEAM
 # We are creating a github team to be added to the repository
 # ---------------------------------------------------------------------------------------------------------------------

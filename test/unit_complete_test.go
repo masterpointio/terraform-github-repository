@@ -13,6 +13,7 @@ func TestUnitComplete(t *testing.T) {
 
 	expectedRepositoryNameA := fmt.Sprintf("test-unit-complete-A-%s", random.UniqueId())
 	expectedRepositoryNameB := fmt.Sprintf("test-unit-complete-B-%s", random.UniqueId())
+	expectedRepositoryNameFork := fmt.Sprintf("test-unit-complete-fork-%s", random.UniqueId())
 
 	expectedTeamName := fmt.Sprintf("test-unit-complete-%s", random.UniqueId())
 
@@ -38,6 +39,7 @@ func TestUnitComplete(t *testing.T) {
 		Vars: map[string]interface{}{
 			"name":                          expectedRepositoryNameA,
 			"repository_with_defaults_name": expectedRepositoryNameB,
+			"repository_fork_name":          expectedRepositoryNameFork,
 			"issue_labels":                  issueLabels,
 
 			"team_name": expectedTeamName,

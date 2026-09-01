@@ -252,3 +252,21 @@ variable "app_installations" {
   description = "A list of GitHub App IDs to be installed in this repository."
   default     = []
 }
+
+variable "repository_fork_name" {
+  description = "The name of the forked repository created for testing."
+  type        = string
+  default     = "test-public-repository-complete-example-fork"
+}
+
+variable "fork_source_owner" {
+  description = "The owner of the repository being forked for testing."
+  type        = string
+  default     = "octocat"
+}
+
+variable "fork_source_repo" {
+  description = "The name of the repository being forked for testing."
+  type        = string
+  default     = "Hello-World"
+}
