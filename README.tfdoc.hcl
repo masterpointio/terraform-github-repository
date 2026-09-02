@@ -21,7 +21,7 @@ header {
   }
 
   badge "tf-gh" {
-    image = "https://img.shields.io/badge/GH-4.10+-F8991D.svg?logo=terraform"
+    image = "https://img.shields.io/badge/GH-6.8+-F8991D.svg?logo=terraform"
     url   = "https://github.com/terraform-providers/terraform-provider-github/releases"
     text  = "Github Provider Version"
   }
@@ -39,11 +39,9 @@ section {
   content = <<-END
     A [Terraform] module for creating a public or private repository on [Github].
 
-    **_This module supports Terraform v1.x and is compatible with the Official Terraform GitHub Provider v4.20 and above from `integrations/github`._**
+    **_This module supports Terraform v1.x and is compatible with the Official Terraform GitHub Provider v6.8 and above from `integrations/github`._**
 
     **Attention: This module is incompatible with the Hashicorp GitHub Provider! The latest version of this module supporting `hashicorp/github` provider is `~> 0.10.0`**
-
-    ** Note: Versions 5.3.0, 5.4.0, and 5.5.0 of the Terraform Github Provider have broken branch protections support and should not be used.**
   END
 
   section {
@@ -1525,7 +1523,7 @@ references {
     value = "https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack"
   }
   ref "badge-tf-gh" {
-    value = "https://img.shields.io/badge/GH-4.10+-F8991D.svg?logo=terraform"
+    value = "https://img.shields.io/badge/GH-6.8+-F8991D.svg?logo=terraform"
   }
   ref "releases-github-provider" {
     value = "https://github.com/terraform-providers/terraform-provider-github/releases"
